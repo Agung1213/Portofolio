@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agung — Portofolio</title>
+<meta name="description" content="Portofolio Agung — Lulusan Teknik Nuklir. Analisis data, simulasi, dan proyek teknis lainnya." />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23A8722E'/%3E%3Ctext x='32' y='42' font-size='30' font-family='Georgia,serif' fill='%23F7F1E6' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="#/" class="brand">Agung Ari Saputro</a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="#/">Beranda</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <!-- ============== HALAMAN BERANDA ============== -->
+  <section id="view-home" class="view">
+
+    <section class="hero wrap">
+      <h1>Halo, saya Agung.</h1>
+      <p class="hero__role">Sarjana Teknik Nuklir</p>
+      <p class="hero__intro">
+        Di sini saya mengumpulkan proyek-proyek yang pernah saya kerjakan —
+        mulai dari analisis data sampai simulasi teknis. Pilih salah satu
+        proyek di bawah untuk melihat penjelasan lengkapnya.
+      </p>
+    </section>
+
+    <section class="portfolio-index wrap" aria-labelledby="portfolio-heading">
+      <h2 id="portfolio-heading">Portofolio</h2>
+      <div id="portfolio-list" class="portfolio-list">
+        <!-- diisi otomatis oleh app.js dari assets/data.js -->
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ============== HALAMAN DETAIL PROYEK ============== -->
+  <section id="view-detail" class="view" hidden>
+    <div class="wrap detail">
+
+      <a href="#/" class="back-link">← Kembali ke Beranda</a>
+
+      <p class="detail__meta">
+        <span id="detail-category"></span> · <span id="detail-year"></span>
+      </p>
+      <h1 id="detail-title"></h1>
+      <p id="detail-summary" class="detail__summary"></p>
+
+      <div id="detail-embed-wrap"></div>
+
+      <div class="detail__body">
+        <h2>Tentang proyek ini</h2>
+        <div id="detail-description"></div>
+
+        <h3>Alat yang digunakan</h3>
+        <ul id="detail-tools" class="tool-list"></ul>
+      </div>
+
+      <a href="#/" class="back-link back-link--bottom">← Kembali ke Beranda</a>
+    </div>
+  </section>
+
+  <!-- ============== HALAMAN TIDAK DITEMUKAN ============== -->
+  <section id="view-notfound" class="view" hidden>
+    <div class="wrap detail">
+      <h1>Proyek tidak ditemukan</h1>
+      <p>Proyek yang kamu cari mungkin sudah dipindahkan atau belum ditambahkan.</p>
+      <a href="#/" class="back-link">← Kembali ke Beranda</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="kontak">
+  <div class="wrap site-footer__inner">
+    <p>© <span id="year"></span> Agung</p>
+    <p class="site-footer__links">
+      <a href="arisaputro121@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/agung-ari-s-2359042a6/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/username" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

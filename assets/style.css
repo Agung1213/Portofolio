@@ -1,0 +1,326 @@
+/* ==========================================================================
+   DESIGN TOKENS
+   ========================================================================== */
+:root {
+  --cream:      #F7F1E6;   /* latar utama */
+  --surface:    #FFFDF9;   /* latar kartu/blok */
+  --ink:        #2E2A22;   /* teks utama */
+  --muted:      #6B6152;   /* teks sekunder */
+  --hairline:   #DDD0B4;   /* garis pembatas tipis */
+  --accent:     #A8722E;   /* aksen: brass/ochre hangat */
+  --accent-ink: #7C5423;   /* aksen versi lebih gelap, untuk hover/teks di atas terang */
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --max-width: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  border-bottom: 1px solid var(--hairline);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.main-nav a {
+  margin-left: 24px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+}
+.main-nav a:hover { color: var(--ink); }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  padding-top: 72px;
+  padding-bottom: 48px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+.hero__role {
+  font-size: 17px;
+  color: var(--accent-ink);
+  margin: 0 0 20px;
+}
+.hero__intro {
+  max-width: 54ch;
+  color: var(--muted);
+  font-size: 17px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   DAFTAR PORTOFOLIO (BERANDA)
+   ========================================================================== */
+.portfolio-index {
+  padding-bottom: 96px;
+}
+.portfolio-index h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  margin: 0 0 8px;
+  padding-top: 32px;
+  border-top: 1px solid var(--hairline);
+}
+
+.portfolio-list { margin-top: 24px; }
+
+.portfolio-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--hairline);
+  text-decoration: none;
+  color: inherit;
+}
+.portfolio-row:first-child { padding-top: 0; }
+
+.portfolio-row__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 23px;
+  margin: 6px 0 6px;
+  color: var(--ink);
+}
+.portfolio-row__summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15.5px;
+  max-width: 52ch;
+}
+.portfolio-row__arrow {
+  font-size: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+.portfolio-row:hover .portfolio-row__arrow { transform: translateX(4px); }
+
+.tag {
+  display: inline-block;
+  font-size: 12.5px;
+  color: var(--accent-ink);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 3px 11px;
+}
+
+.empty-state { color: var(--muted); }
+
+/* ==========================================================================
+   HALAMAN DETAIL PROYEK
+   ========================================================================== */
+.detail {
+  padding-top: 40px;
+  padding-bottom: 96px;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+.back-link:hover { color: var(--ink); }
+.back-link--bottom { margin-top: 40px; margin-bottom: 0; }
+
+.detail__meta {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.detail h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(30px, 4.5vw, 40px);
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+.detail__summary {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 56ch;
+  margin: 0 0 36px;
+}
+
+.detail__body h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  margin: 48px 0 16px;
+}
+.detail__body h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 17px;
+  margin: 32px 0 12px;
+}
+.detail__body p {
+  max-width: 68ch;
+  color: var(--ink);
+}
+
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tool-list li {
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: var(--muted);
+}
+
+/* ---------- kotak embed (mis. Google Sheet) ---------- */
+.embed-frame {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.embed-frame__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--hairline);
+}
+.embed-frame__label {
+  font-size: 14px;
+  color: var(--muted);
+}
+.embed-frame__open {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--accent-ink);
+  white-space: nowrap;
+}
+.embed-frame__iframe {
+  width: 100%;
+  height: 480px;
+  border: 0;
+  display: block;
+}
+.embed-frame__placeholder {
+  padding: 20px 16px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+.embed-frame__placeholder p { margin: 0 0 8px; max-width: none; }
+.embed-frame__placeholder code {
+  background: var(--cream);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--hairline);
+}
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer__inner p { margin: 0; }
+.site-footer__links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 16px;
+}
+.site-footer__links a:hover { color: var(--ink); }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 600px) {
+  .hero { padding-top: 48px; }
+  .portfolio-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .portfolio-row__arrow { display: none; }
+  .embed-frame__iframe { height: 360px; }
+  .site-footer__inner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .site-footer__links a:first-child { margin-left: 0; }
+}
