@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard Analisis Fundamental Saham IDX — Agung</title>
+<meta name="description" content="Menilai valuasi historis emiten Bursa Efek Indonesia lewat dashboard interaktif berbasis Google Sheets." />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23A8722E'/%3E%3Ctext x='32' y='42' font-size='30' font-family='Georgia,serif' fill='%23F7F1E6' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+
+<!-- data-project HARUS sama dengan "slug" proyek di assets/data.js -->
+<body data-project="analisis-saham-idx">
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="../index.html" class="brand">Agung Ari Saputro</a>
+    <div class="header-right">
+      <nav class="main-nav" data-i18n-attr="aria-label:navAria" aria-label="Navigasi utama">
+        <a href="../index.html" data-i18n="navHome">Beranda</a>
+        <a href="#kontak" data-i18n="navContact">Kontak</a>
+      </nav>
+      <div id="lang-switch" class="lang-switch" role="group" aria-label="Language / Bahasa / 言語"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="wrap detail">
+
+    <div id="project-view">
+      <a href="../index.html" class="back-link" data-i18n="backHome">← Kembali ke Beranda</a>
+
+      <!-- Bagian ini (kategori, tahun, judul, ringkasan, embed, alat) terisi
+           otomatis dari assets/data.js. Jangan diubah. -->
+      <p class="detail__meta">
+        <span id="detail-category"></span> · <span id="detail-year"></span>
+      </p>
+      <h1 id="detail-title"></h1>
+      <p id="detail-summary" class="detail__summary"></p>
+
+      <div id="detail-embed-wrap"></div>
+
+      <div class="detail__body">
+        <h2 data-i18n="aboutProject">Tentang proyek ini</h2>
+
+        <!-- ==================================================================
+             PENJELASAN PROYEK — TULIS DI SINI, satu blok per bahasa.
+             Isi tiap blok bebas HTML: <p>, <h3>, <h4>, <ul>, <ol>,
+             <figure><img src="../assets/img/foto.png" alt="..."><figcaption>..</figcaption></figure>
+             Tidak ada batas panjang. Bahasa yang blok-nya tidak ada akan
+             menampilkan blok bahasa Indonesia (id).
+             ================================================================== -->
+        <div data-lang="id">
+          <p>Dashboard ini dibuat untuk membaca kesehatan finansial sebuah emiten di Bursa Efek Indonesia (IDX) hanya dengan memilih kode sahamnya dari satu dropdown. Begitu saham dipilih, dashboard menampilkan profil singkat emiten — sektor, sub-sektor, dan tahun IPO — beserta empat angka kunci saat ini: harga saham, kapitalisasi pasar, dividen, dan rasio valuasi (PER, PBV, ROE).</p>
+          <p>Bagian intinya ada di tabel historis: harga saham, market cap, dividen, EPS, BVPS, ROA, ROE, EV/EBITDA, hingga rasio utang (debt to equity, debt to EBITDA) dari tahun 2021 sampai 2026 disusun berdampingan, lengkap dengan grafik tren untuk melihat arah pertumbuhannya dari waktu ke waktu.</p>
+          <p>Semua angka ditarik otomatis lewat fungsi Google Finance dan rumus di Google Sheets, jadi datanya bisa diperbarui tanpa mengetik ulang satu per satu.</p>
+        </div>
+
+        <div data-lang="en">
+          <p>This dashboard is built to read the financial health of an issuer on the Indonesia Stock Exchange (IDX) simply by choosing its ticker from a single dropdown. Once a stock is selected, the dashboard shows a short company profile — sector, sub-sector, and IPO year — along with four key current figures: share price, market capitalization, dividend, and valuation ratios (PER, PBV, ROE).</p>
+          <p>The core is the historical table: share price, market cap, dividend, EPS, BVPS, ROA, ROE, EV/EBITDA, and debt ratios (debt to equity, debt to EBITDA) from 2021 to 2026 are laid out side by side, complete with trend charts to see how they have moved over time.</p>
+          <p>All figures are pulled automatically through the Google Finance function and Google Sheets formulas, so the data can be refreshed without retyping anything.</p>
+        </div>
+
+        <div data-lang="ja">
+          <p>このダッシュボードは、インドネシア証券取引所（IDX）の上場企業の財務状況を、ドロップダウンから銘柄コードを選ぶだけで把握できるように作成しました。銘柄を選ぶと、セクター・サブセクター・IPO年といった企業の概要と、株価・時価総額・配当・バリュエーション指標（PER、PBV、ROE）という4つの主要な最新数値が表示されます。</p>
+          <p>中心となるのは過去データの表です。株価、時価総額、配当、EPS、BVPS、ROA、ROE、EV/EBITDA、さらに負債比率（自己資本に対する負債、EBITDAに対する負債）を2021年から2026年まで並べて表示し、推移を示すトレンドグラフも付いています。</p>
+          <p>すべての数値はGoogle Finance関数とGoogleスプレッドシートの数式で自動取得されるため、手入力し直さなくてもデータを更新できます。</p>
+        </div>
+
+        <h3 data-i18n="toolsUsed">Alat yang digunakan</h3>
+        <ul id="detail-tools" class="tool-list"></ul>
+      </div>
+
+      <a href="../index.html" class="back-link back-link--bottom" data-i18n="backHome">← Kembali ke Beranda</a>
+    </div>
+
+    <!-- Tampil hanya jika data-project tidak cocok dengan slug mana pun di data.js -->
+    <div id="project-notfound" hidden>
+      <h1 data-i18n="notFoundTitle">Proyek tidak ditemukan</h1>
+      <p data-i18n="notFoundText">Proyek yang kamu cari mungkin sudah dipindahkan atau belum ditambahkan.</p>
+      <a href="../index.html" class="back-link" data-i18n="backHome">← Kembali ke Beranda</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer" id="kontak">
+  <div class="wrap site-footer__inner">
+    <p>© <span id="year"></span> Agung</p>
+    <p class="site-footer__links">
+      <a href="mailto:arisaputro121@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/agung-ari-s-2359042a6/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/username" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/i18n.js"></script>
+<script src="../assets/data.js"></script>
+<script src="../assets/common.js"></script>
+<script src="../assets/project.js"></script>
+</body>
+</html>
